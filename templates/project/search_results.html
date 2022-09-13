@@ -4,28 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ASI Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 </head>
 <body>
   
   <h1>ASI Project Results</h1>
 
-  {% for project in project_list %}
 
-  <div>
 
-    <h3>{{ project.name }}</a></h3>
-    <p>{{ project.district}}</p>
-    <p>{{ project.price}}</p>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">District</th>
+        <th scope="col">Price (M)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in project_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ project.name }}</td>
+          <td>{{ project.district}}</td>
+          <td>S/.{{ project.price}}</td>
+        </tr>
+      {% endfor %}
 
-  
-{% endfor %}
+    </tbody>
+  </table>
+
 
   <p></p>
-  <a href="{% url 'home' %}">Volver</a>
-
-
+  <a class="btn btn-primary"  href="{% url 'home' %}">Volver</a>
 
 
 </body>
